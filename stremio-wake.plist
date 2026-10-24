@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Lets the TV open the Stremio app on this Mac when it's closed (see tv.js, "Streaming server").
+     launchd, part of macOS, listens on port 11469 and runs this only when something connects: it answers
+     "stremio-wake" and opens Stremio in the background (nothing happens if it's already open).
+     Nothing runs in between. Install/remove: see README "Stremio app closed on the Mac". -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.matheuscascao.stremio-wake</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string><string>-c</string>
+    <string>while IFS= read -r -t 5 l; do case "$l" in ''|$'\r') break;; esac; done; printf 'HTTP/1.0 200 OK\r\nAccess-Control-Allow-Origin: *\r\nContent-Length: 12\r\n\r\nstremio-wake'; open -g -j -a Stremio 2>/dev/null</string>
+  </array>
+  <key>inetdCompatibility</key><dict><key>Wait</key><false/></dict>
+  <key>Sockets</key>
+  <dict>
+    <key>Listeners</key>
+    <dict><key>SockServiceName</key><string>11469</string><key>SockFamily</key><string>IPv4</string></dict>
+  </dict>
+</dict>
+</plist>

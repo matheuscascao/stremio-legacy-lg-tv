@@ -1,0 +1,14 @@
+{
+  "name": "stremio-webos-legacy",
+  "private": true,
+  "scripts": { "build": "./build.sh" },
+  "devDependencies": {
+    "@babel/cli": "*",
+    "@babel/core": "*",
+    "@babel/preset-env": "*",
+    "autoprefixer": "*",
+    "core-js-bundle": "*",
+    "postcss": "*",
+    "whatwg-fetch": "*"
+  }
+}

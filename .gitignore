@@ -1,0 +1,7 @@
+node_modules/
+dist/
+shots/
+*.ipk
+# Stremio's own code: downloaded by ./build.sh --refresh, not ours to republish
+vendor/shell-v4.4/*
+!vendor/shell-v4.4/assets.txt

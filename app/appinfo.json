@@ -1,0 +1,12 @@
+{
+  "id": "com.matheus.stremio",
+  "version": "1.0.0",
+  "vendor": "local",
+  "type": "web",
+  "main": "index.html",
+  "title": "Stremio",
+  "icon": "icon.png",
+  "bgColor": "#0c0b11",
+  "requiredACG": [],
+  "disableBackHistoryAPI": true
+}

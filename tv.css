@@ -1,0 +1,44 @@
+/* Hand-tuned overrides on top of patch.js output (webOS TV Lite / Chromium 38) */
+
+/* remote focus: the mouse-hover tints are too faint on a TV; reuse the poster focus ring */
+#topbar [tabindex]:focus, #window-controls [tabindex]:focus, #navbar .tab:focus {
+  box-shadow: 0 0 0 .17rem #fff inset;
+  border-radius: .5rem;
+}
+
+#player [tabindex]:focus, .tv-picker-item:focus {
+  box-shadow: 0 0 0 .17rem #fff inset;
+  border-radius: .5rem;
+  outline: none;
+}
+
+/* player menus: height:100% inside an auto-height flex popup collapses to 0 in Chromium 38 */
+#playbackSpeedMenu ul.listing, #dubMenu ul.listing, #castingControl ul.listing { height: auto; max-height: 24rem; }
+
+/* option list that OK opens on a dropdown (tv.js) */
+#tv-picker {
+  position: fixed;
+  z-index: 10000;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  min-width: 24rem;
+  max-height: 80%;
+  overflow-y: auto;
+  padding: .5rem;
+  background: #1f1d36;
+  border-radius: .75rem;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .6);
+}
+.tv-picker-item {
+  padding: .9rem 1.5rem;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, .8);
+  border-radius: .5rem;
+  outline: none;
+}
+.tv-picker-item.selected { color: #fff; background: rgba(123, 91, 245, .35); }
+
+/* calendar days were sized by grid rows; as flex items with absolute content they need a height (<= 6 week rows) */
+#series-calendar ul.month > li { height: calc(100% / 6 - 1px); }

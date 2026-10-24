@@ -1,0 +1,14 @@
+fonts/PlusJakartaSans.ttf
+fonts/icon-full-height.svg
+fonts/icon-full-height.ttf
+fonts/icon-full-height.woff
+images/account.png
+images/background_1.svg
+images/background_2.svg
+images/calendar_placeholder.png
+images/empty.png
+images/error.png
+images/library_placeholder.png
+images/logo.png
+images/stremio.ico
+images/stremio.png
