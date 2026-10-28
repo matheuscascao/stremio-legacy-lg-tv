@@ -31,6 +31,7 @@ and LG doesn't upgrade the OS on this model.
 | Dropdowns (season, filters, settings) | **OK** opens a list, arrows + **OK** pick, **Back** cancels |
 | Player, controls hidden | **OK** pause/resume, **Left/Right** seek 20 s, **Up/Down** show controls |
 | Player, controls shown | arrows move between buttons, **OK** on subtitles/speed/settings opens its menu, **Back** closes menu, then hides controls, then leaves the player |
+| Player error box ("Network request failed"…) | **OK** or **Back** closes it and leaves the player |
 | Player, right-edge arrow (‹) | episode list / info sidebar; **Back** closes it |
 
 Converted streams (most MKV/HEVC files) take **~30–40 s to start**.

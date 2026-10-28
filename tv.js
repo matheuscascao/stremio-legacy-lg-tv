@@ -198,7 +198,12 @@
       if (sc.showHidable) sc.showHidable();
     }
   }, 2000);
+  function playerErrorShown() { return $('#player-error').is(':visible'); }
   function playerKey(dir, code) {
+    if (playerErrorShown()) { // "Network request failed" etc.: only a mouse click closed it
+      if (code === ENTER) $('#player-error').trigger('click');
+      return true;
+    }
     var el = document.activeElement;
     var sc = playerScope();
     if ($(el).closest('#player .sidebar').length) {
@@ -236,6 +241,7 @@
   function back() {
     var r = root();
     if (inPlayer()) {
+      if (playerErrorShown()) { $('#player-error').trigger('click'); return; } // its ng-click leaves the player
       var active = $('#player .control.active');
       if ($('#player .sidebar.shown').length) { $('#player .sidebar').removeClass('shown'); hideControls(); }
       else if (active.length) { closeMenus(); active.focus(); }
